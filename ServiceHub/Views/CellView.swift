@@ -44,8 +44,8 @@ class CellConfig: UITableViewCell {
         NSLayoutConstraint.activate([
             firstImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 15),
             firstImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 5),
-            firstImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -270),
-            firstImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -15),
+            firstImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -290),
+            firstImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -25),
             
             firstLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 5),
             firstLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 100),

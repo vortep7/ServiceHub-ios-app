@@ -51,8 +51,8 @@ class MainView: UIView {
     func constraintsForLabel() {
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 80),
-            label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -600),
+            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 60),
+            label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -620),
             label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 80),
             label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -80)
         ])
