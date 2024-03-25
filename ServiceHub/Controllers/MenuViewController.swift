@@ -8,11 +8,7 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-    var menuView: MenuView {return self.view as! MenuView}
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    private var menuView: MenuView {return self.view as! MenuView}
     
     override func loadView() {
         self.view = MenuView(frame: UIScreen.main.bounds)
