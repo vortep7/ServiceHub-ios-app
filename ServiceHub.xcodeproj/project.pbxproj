@@ -24,6 +24,7 @@
 		17392C212BB1C818006DB792 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17392C202BB1C818006DB792 /* MainViewController.swift */; };
 		17392C242BB1CA68006DB792 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17392C232BB1CA68006DB792 /* MainView.swift */; };
 		17392C262BB1CAFD006DB792 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17392C252BB1CAFD006DB792 /* CellView.swift */; };
+		17392C282BB1CDC7006DB792 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17392C272BB1CDC7006DB792 /* CellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		17392C202BB1C818006DB792 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		17392C232BB1CA68006DB792 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		17392C252BB1CAFD006DB792 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		17392C272BB1CDC7006DB792 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				17392C0D2BB1B9E3006DB792 /* Service.swift */,
+				17392C272BB1CDC7006DB792 /* CellModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				17392C212BB1C818006DB792 /* MainViewController.swift in Sources */,
 				17392BF42BB1B6AD006DB792 /* SceneDelegate.swift in Sources */,
 				17392C0E2BB1B9E3006DB792 /* Service.swift in Sources */,
+				17392C282BB1CDC7006DB792 /* CellModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,27 @@ class MainView: UIView {
         return imageView
     }()
     
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .clear
+        tableView.layer.cornerRadius = 20
+        return tableView
+    }()
+    
+    let label: UILabel = {
+        let label = UILabel()
+        
+        label.font = UIFont(name: "abosanova", size: 40)
+        label.text = "My services"
+        
+        label.layer.shadowColor = UIColor.gray.cgColor
+        label.layer.shadowOffset = .zero
+        label.layer.shadowRadius = 4.0
+        label.layer.shadowOpacity = 1.0
+        
+        return label
+    }()
+    
     //MARK: - create constraints
     func constraintsForImageView() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -27,15 +48,38 @@ class MainView: UIView {
         ])
     }
     
+    func constraintsForLabel() {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 80),
+            label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -600),
+            label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 80),
+            label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -80)
+        ])
+    }
+    
+    func constraintsForTableView() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: self.topAnchor, constant: 200),
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100),
+            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+        ])
+    }
+    
+    //MARK: - setup all views
     func setupViews() {
         self.addSubview(imageView)
-       
+        self.addSubview(tableView)
+        self.addSubview(label)
     }
     
     //MARK: - setup all constraints
     func setupConstraints() {
         constraintsForImageView()
-     
+        constraintsForTableView()
+        constraintsForLabel()
     }
     
     override init(frame: CGRect) {
@@ -43,7 +87,6 @@ class MainView: UIView {
         
         setupViews()
         setupConstraints()
-
     }
     
     required init?(coder: NSCoder) {
