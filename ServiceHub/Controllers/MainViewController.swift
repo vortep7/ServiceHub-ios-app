@@ -13,4 +13,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    override func loadView() {
+        self.view = MainView(frame: UIScreen.main.bounds)
+    }
 }

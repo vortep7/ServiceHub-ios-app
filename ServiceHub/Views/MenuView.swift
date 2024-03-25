@@ -9,16 +9,25 @@ import Lottie
 
 final class MenuView: UIView {
     
+    //MARK: - clouser for nav button
+    var onLogBottonAction: (() -> Void)?
+    
     //MARK: - create UI elements
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "cute")
+        imageView.image = UIImage(named: "blue")
         return imageView
     }()
     
     private let animationView:LottieAnimationView = {
         let animationView = LottieAnimationView(name: "Comp")
         animationView.contentMode = .scaleAspectFit
+        
+        animationView.layer.shadowColor = UIColor.white.cgColor
+        animationView.layer.shadowOffset = .zero
+        animationView.layer.shadowRadius = 6.0
+        animationView.layer.shadowOpacity = 1.0
+        
         return animationView
     }()
     
@@ -93,6 +102,10 @@ final class MenuView: UIView {
         ])
     }
     
+    func createTask() {
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+    }
+    
     //MARK: - setup views
     func setupViews() {
         self.addSubview(imageView)
@@ -114,7 +127,7 @@ final class MenuView: UIView {
         
         setupViews()
         setupConstraints()
-        
+        createTask()
         animationView.play()
         animationView.loopMode = .loop
     }
@@ -127,4 +140,10 @@ final class MenuView: UIView {
 
 enum TextForView: String {
     case firstLabel = "SERVICE HUB"
+}
+
+extension MenuView {
+    @objc func buttonAction() {
+        onLogBottonAction?()
+    }
 }
