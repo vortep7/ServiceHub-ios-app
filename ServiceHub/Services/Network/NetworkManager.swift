@@ -16,29 +16,31 @@ class NetworkManager {
     public static let shared = NetworkManager()
     private init() {}
     private let decoder = JSONDecoder()
+    
+    private func createUrl() -> URL? {
+        let tunnel = "https://"
+        let server = "publicstorage.hb.bizmrg.com/"
+        let endPoint = "sirius/result.json"
+        
+        let result = URL(string: tunnel + server + endPoint)
+        return result
+    }
 }
 
 extension NetworkManager:NetworkService {
     public func fetchData(completion: @escaping (Result<Service,Error>) -> Void) {
-        print("q")
-        let request = URL(string: "https://publicstorage.hb.bizmrg.com/sirius/result.json")!
-        print("have url")
+        let request = createUrl()!
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(error))
-                print("erro r")
             }
             guard let data = data
             else {
-                print("no data")
-
                 return}
             do {
                 let json = try self.decoder.decode(Service.self, from: data)
-                print("sss")
                 completion(.success(json))
             } catch {
-                print("last catch")
                 completion(.failure(error))
             }
         }.resume()

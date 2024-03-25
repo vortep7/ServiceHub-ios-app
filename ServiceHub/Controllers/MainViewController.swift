@@ -4,8 +4,8 @@
 //
 //  Created by Андрей Петров on 25.03.2024.
 //
-
 import UIKit
+import UIView_Shimmer
 
 class MainViewController: UIViewController {
     
@@ -37,6 +37,7 @@ extension MainViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+
         cell.backgroundColor = .colourForCell
         cell.layer.cornerRadius = 12
         
@@ -45,17 +46,25 @@ extension MainViewController: UITableViewDataSource {
             cell.secondLabel.text = LoadingText.secondText.rawValue
         }
         
+        cell.shimmerLayer.isHidden = false
+        cell.firstLabel.text = self.source[indexPath.item].name
+        cell.secondLabel.text = self.source[indexPath.item].title
+        
         if !self.source.isEmpty {
-            
-            cell.firstLabel.text = self.source[indexPath.item].name
-            cell.secondLabel.text = self.source[indexPath.item].title
             let url = URL(string: self.source[indexPath.item].image)
+            
             DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url!) {
+                if let url = url, let data = try? Data(contentsOf: url) {
                     DispatchQueue.main.async {
-                        cell.firstImageView.image = UIImage(data: data)
+                        if let cellToUpdate = tableView.cellForRow(at: indexPath) as? CellConfig {
+//                            cellToUpdate.secondImageView.image = nil
+                            cell.shimmerLayer.isHidden = true
+                            cellToUpdate.firstImageView.image = UIImage(data: data)
+                        }
                     }
+                    
                 }
+                
             }
         }
         
@@ -71,13 +80,19 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let urlString = self.source[indexPath.row].link
-        
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
-        }
-        
-        UIApplication.shared.open(url)
+            guard let url = URL(string: urlString) else {
+                print("Invalid URL")
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     }
 }
 

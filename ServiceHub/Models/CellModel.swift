@@ -35,10 +35,8 @@ class Source {
             switch result {
             case .success(let data):
                 self.firstArray = data.body.services
-                print(self.firstArray)
                 self.firstFlag = true
                 if self.firstFlag == true{
-                    print("2323")
                     self.tableSource()
                     completion(self.myArray)
                 }
@@ -58,7 +56,6 @@ class Source {
             MyService(name: firstArray[5].name, title: firstArray[5].description, image: firstArray[5].icon_url, link: firstArray[5].link),
             MyService(name: firstArray[6].name, title: firstArray[6].description, image: firstArray[6].icon_url, link: firstArray[6].link),
             MyService(name: firstArray[7].name, title: firstArray[7].description, image: firstArray[7].icon_url, link: firstArray[7].link),
-
         ]
         self.myArray = dataArray
         return dataArray

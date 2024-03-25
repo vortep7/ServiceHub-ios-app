@@ -7,7 +7,7 @@
 import UIKit
 import Foundation
 
-class MainView: UIView {
+final class MainView: UIView {
     
     //MARK: - create UI elements
     private let imageView: UIImageView = {

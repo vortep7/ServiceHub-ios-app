@@ -1,6 +1,7 @@
 
 import UIKit
 import Foundation
+import UIView_Shimmer
 
 class CellConfig: UITableViewCell {
     
@@ -25,15 +26,37 @@ class CellConfig: UITableViewCell {
     
     var firstImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
+    var secondImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "blue")
+        return imageView
+    }()
+    
+    let shimmerLayer = CAGradientLayer()
+
     func setupCell() {
         firstLabel.translatesAutoresizingMaskIntoConstraints = false
         secondLabel.translatesAutoresizingMaskIntoConstraints = false
         thirdLabel.translatesAutoresizingMaskIntoConstraints = false
-
+        
         firstImageView.translatesAutoresizingMaskIntoConstraints = false
+        secondImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        shimmerLayer.colors = [UIColor(white: 0.65, alpha: 0.7).cgColor,
+                               UIColor(white: 0.65, alpha: 0.7).cgColor,
+                               UIColor(white: 0.65, alpha: 0.7).cgColor]
+        shimmerLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        shimmerLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        shimmerLayer.locations = [0.3, 0.5, 0.7]
+        shimmerLayer.cornerRadius = 10
+        shimmerLayer.frame = CGRect(x: 10, y: 10, width: UIScreen.main.bounds.width - 345, height: 65)
+        self.contentView.layer.addSublayer(shimmerLayer)
+        
         
         self.contentView.addSubview(firstLabel)
         self.contentView.addSubview(secondLabel)
