@@ -1,0 +1,24 @@
+{
+  "originHash" : "fe18a7df94d51f9233e021c4e880bcb091ca447a865ac70e6ad8613d3da65288",
+  "pins" : [
+    {
+      "identity" : "lottie-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-spm.git",
+      "state" : {
+        "revision" : "3bd43e12d6fb54654366a61f7cfaca787318b8ce",
+        "version" : "4.4.1"
+      }
+    },
+    {
+      "identity" : "uiview-shimmer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/omerfarukozturk/UIView-Shimmer.git",
+      "state" : {
+        "revision" : "6b25069ae46e10295dd9f06e821def70ae197698",
+        "version" : "1.0.4"
+      }
+    }
+  ],
+  "version" : 3
+}
