@@ -12,4 +12,4 @@
 
 ---
 
-![EpidemicVideo](https://github.com/vortep7/ServiceHub-ios-app/blob/dev/ImageStore/ServiceHub.gif)
+![EpidemicVideo](https://github.com/vortep7/ServiceHub-ios-app/blob/dev/ImageStore/ServiceHub.mp4)
