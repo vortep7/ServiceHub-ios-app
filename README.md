@@ -6,6 +6,7 @@
 * MVC Architecture
 * UIKit
 * JSON
+* GCD
 * Lottie
 
 ## The application allows you to switch to various services. If this service is installed on your device, it will go to the installed application itself.
