@@ -23,7 +23,7 @@ final class MainView: UIView {
         return tableView
     }()
     
-    let label: UILabel = {
+    private let label: UILabel = {
         let label = UILabel()
         
         label.font = UIFont(name: "abosanova", size: 40)

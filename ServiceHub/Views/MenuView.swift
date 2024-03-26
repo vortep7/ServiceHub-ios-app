@@ -142,6 +142,7 @@ enum TextForView: String {
     case firstLabel = "SERVICE HUB"
 }
 
+//MARK: - action for loButton
 extension MenuView {
     @objc func buttonAction() {
         onLogBottonAction?()

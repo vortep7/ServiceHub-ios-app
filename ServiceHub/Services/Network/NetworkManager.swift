@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol NetworkService {
-    func fetchData(completion: @escaping (Result<Service,Error>) -> Void)
+    func fetchData(completion: @escaping (Result<Service,Error>) -> Void) throws
 }
 
 class NetworkManager {
@@ -18,6 +18,7 @@ class NetworkManager {
     private let decoder = JSONDecoder()
     
     private func createUrl() -> URL? {
+        
         let tunnel = "https://"
         let server = "publicstorage.hb.bizmrg.com/"
         let endPoint = "sirius/result.json"
@@ -28,15 +29,18 @@ class NetworkManager {
 }
 
 extension NetworkManager:NetworkService {
-    public func fetchData(completion: @escaping (Result<Service,Error>) -> Void) {
-        let request = createUrl()!
+    public func fetchData(completion: @escaping (Result<Service,Error>) -> Void) throws {
+        guard let request = createUrl() else {
+            throw NetworkErrors.badURL
+        }
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(error))
             }
             guard let data = data
             else {
-                return}
+               return
+            }
             do {
                 let json = try self.decoder.decode(Service.self, from: data)
                 completion(.success(json))

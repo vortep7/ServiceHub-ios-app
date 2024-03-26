@@ -19,7 +19,6 @@ class Source {
     private var title: String?
     
     var firstArray = [Service.Body.ServiceItem]()
-    
     var myArray = [MyService]()
     var firstFlag = false
     
@@ -31,7 +30,8 @@ class Source {
     }
 
     func requestForCollection(completion: @escaping ([MyService]?) -> Void) {
-        networkManager.fetchData {result in
+        
+        try? networkManager.fetchData {result in
             switch result {
             case .success(let data):
                 self.firstArray = data.body.services

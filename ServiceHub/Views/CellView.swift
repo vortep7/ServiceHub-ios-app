@@ -30,13 +30,6 @@ class CellConfig: UITableViewCell {
         return imageView
     }()
     
-    var secondImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "blue")
-        return imageView
-    }()
-    
     let shimmerLayer = CAGradientLayer()
 
     func setupCell() {
@@ -45,11 +38,11 @@ class CellConfig: UITableViewCell {
         thirdLabel.translatesAutoresizingMaskIntoConstraints = false
         
         firstImageView.translatesAutoresizingMaskIntoConstraints = false
-        secondImageView.translatesAutoresizingMaskIntoConstraints = false
         
         shimmerLayer.colors = [UIColor(white: 0.65, alpha: 0.7).cgColor,
                                UIColor(white: 0.65, alpha: 0.7).cgColor,
                                UIColor(white: 0.65, alpha: 0.7).cgColor]
+        
         shimmerLayer.startPoint = CGPoint(x: 0, y: 0.5)
         shimmerLayer.endPoint = CGPoint(x: 1, y: 0.5)
         shimmerLayer.locations = [0.3, 0.5, 0.7]

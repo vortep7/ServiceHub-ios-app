@@ -57,7 +57,6 @@ extension MainViewController: UITableViewDataSource {
                 if let url = url, let data = try? Data(contentsOf: url) {
                     DispatchQueue.main.async {
                         if let cellToUpdate = tableView.cellForRow(at: indexPath) as? CellConfig {
-//                            cellToUpdate.secondImageView.image = nil
                             cell.shimmerLayer.isHidden = true
                             cellToUpdate.firstImageView.image = UIImage(data: data)
                         }
@@ -80,19 +79,15 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let urlString = self.source[indexPath.row].link
-            guard let url = URL(string: urlString) else {
-                print("Invalid URL")
-                return
-            }
-            
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url)
-            } else {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
 }
 

@@ -139,6 +139,7 @@
 		17392C102BB1BC72006DB792 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				17392C2C2BB295A5006DB792 /* Animations */,
 				17392C142BB1C26A006DB792 /* Fonts */,
 				17392BFF2BB1B6B0006DB792 /* Info.plist */,
 				17392BFA2BB1B6B0006DB792 /* Assets.xcassets */,
@@ -161,11 +162,18 @@
 		17392C142BB1C26A006DB792 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				17392C1C2BB1C58B006DB792 /* service.json */,
 				17392C152BB1C28E006DB792 /* abosanova.ttf */,
-				17392C172BB1C445006DB792 /* Comp.json */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		17392C2C2BB295A5006DB792 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				17392C172BB1C445006DB792 /* Comp.json */,
+				17392C1C2BB1C58B006DB792 /* service.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
